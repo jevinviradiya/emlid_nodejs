@@ -1,0 +1,1197 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a example NodeJS API project to demonstrate Swagger Documentation",
+        "version": "1.0.0",
+        "title": "Emlid Backen API",
+        "contact": {
+            "email": "jigneshv1101@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "schemas": [
+        "http"
+    ],
+    "host": "localhost:3000",
+    "basePath": "/api/v1",
+    "securityDefinitions": {
+        "BasicAuth": {
+            "type": "basic"
+        },
+        "ApiKeyAuth": {
+            "type": "apiKey",
+            "in": "header",
+            "name": "authorization"
+        },
+        "OAuth2": {
+            "type": "oauth2",
+            "flow": "accessCode",
+            "authorizationUrl": "https://example.com/oauth/authorize",
+            "tokenUrl": "https://example.com/oauth/token",
+            "scopes": {
+                "read": "Grants read access",
+                "write": "Grants write access",
+                "admin": "Grants read and write access to administrative information"
+            }
+        }
+    },
+    "paths": {
+        "/signup": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User Registation",
+                "description": "User Registation",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "parameters": [
+                    {
+                        "in": "formData",
+                        "name": "login_type",
+                        "description": "Enter Login Type 0/1",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/userSignup"
+                        }
+                    },
+                    {
+                        "in": "formData",
+                        "name": "email",
+                        "description": "Enter Email Id",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/userSignup"
+                        }
+                    },
+                    {
+                        "in": "formData",
+                        "name": "password",
+                        "description": "Enter Password",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/userSignup"
+                        }
+                    },
+                    {
+                        "in": "formData",
+                        "name": "social_id",
+                        "description": "Enter Social Id",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/userSignup"
+                        }
+                    },
+                    {
+                        "in": "formData",
+                        "name": "social_type",
+                        "description": "Enter Social Type",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/userSignup"
+                        }
+                    },
+                    {
+                        "in": "formData",
+                        "name": "image",
+                        "description": "Enter Image",
+                        "type": "file",
+                        "Content-Type": [
+                            "image/png",
+                            "image/jpg",
+                            "image/jpeg"
+                        ],
+                        "required": false,
+                        "schema": {
+                            "type": "file",
+                            "$ref": "#/definitions/userSignup"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User created successfully"
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/userSignup"
+                        }
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User Login",
+                "description": "User Login",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "Body",
+                        "description": "Enter Required Details",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/userLogin"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User created successfully"
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/userLogin"
+                        }
+                    }
+                }
+            }
+        },
+        "/update-userinfo/{id}": {
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Update User Information",
+                "description": "Update User Info",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "description": "token that need to be set in header with 'Bearer' keyword",
+                        "required": true,
+                        "type": "string",
+                        "example": "Bearer token"
+                    },
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Enter User ID",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/updateUserInfo"
+                        }
+                    },
+                    {
+                        "in": "body",
+                        "name": "Body",
+                        "description": "Enter What You Want To Update ",
+                        "schema": {
+                            "$ref": "#/definitions/updateUserInfo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User created successfully"
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/updateUserInfo"
+                        }
+                    }
+                }
+            }
+        },
+        "/update-image/{id}": {
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Update User Image",
+                "description": "Update User Image",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "parameters": [
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "description": "token that need to be set in header with 'Bearer' keyword",
+                        "required": true,
+                        "type": "string",
+                        "example": "Bearer token"
+                    },
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Enter User ID",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/updateUserInfo"
+                        }
+                    },
+                    {
+                        "in": "formData",
+                        "name": "image",
+                        "description": "Enter Image",
+                        "required": true,
+                        "type": "file",
+                        "Content-Type": [
+                            "image/png",
+                            "image/jpg",
+                            "image/jpeg"
+                        ],
+                        "schema": {
+                            "type": "file",
+                            "$ref": "#/definitions/updateImage"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User created successfully"
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/updateImage"
+                        }
+                    }
+                }
+            }
+        },
+        "/logout": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User Logout",
+                "description": "Logout",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "description": "Token That Need To Be Set In Header With 'Bearer' Keyword",
+                        "required": true,
+                        "type": "string",
+                        "example": "Bearer token"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/userSignup"
+                        }
+                    }
+                }
+            }
+        },
+        "/user-details": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get User Details",
+                "description": "Get User Details",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "Token That Need To Be Set In Header With 'Bearer' Keyword",
+                        "required": true,
+                        "type": "string",
+                        "example": "Bearer token"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/delete-account": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Delete User Account",
+                "description": "Delete User Account",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "Token That Need To Be Set In Header With 'Bearer' Keyword",
+                        "required": true,
+                        "type": "string",
+                        "example": "Bearer token"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/create-verticaldatum": {
+            "post": {
+                "tags": [
+                    "Vertical Datums"
+                ],
+                "summary": "Create Vertical Datums",
+                "description": "Create Vertical Datums",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "parameters": [
+                    {
+                        "in": "formData",
+                        "name": "name",
+                        "description": "Enter Name",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/verticalDatum"
+                        }
+                    },
+                    {
+                        "in": "formData",
+                        "name": "country",
+                        "description": "Enter Country",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/verticalDatum"
+                        }
+                    },
+                    {
+                        "in": "formData",
+                        "name": "url",
+                        "description": "Enter url",
+                        "type": "file",
+                        "required": true,
+                        "Content": [
+                            "image/png",
+                            "image/jpg",
+                            "image/jpeg"
+                        ],
+                        "schema": {
+                            "type": "file",
+                            "$ref": "#/definitions/verticalDatum"
+                        }
+                    },
+                    {
+                        "in": "formData",
+                        "name": "file_name",
+                        "description": "Enter FIle Name",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/verticalDatum"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/verticaldatum-list": {
+            "post": {
+                "tags": [
+                    "Vertical Datums"
+                ],
+                "summary": "Get Vertical Datums List",
+                "description": "Get Vertical Datums List",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Enter Required Details",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/verticalDatumList"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/create-project": {
+            "post": {
+                "tags": [
+                    "Project"
+                ],
+                "summary": "Create Project",
+                "description": "Create Project",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Enter All Required Details",
+                        "schema": {
+                            "$ref": "#/definitions/project"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/survey-details": {
+            "get": {
+                "tags": [
+                    "Project"
+                ],
+                "summary": "Get All Projects",
+                "description": "Get All projects",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/edit-project/{id}": {
+            "post": {
+                "tags": [
+                    "Project"
+                ],
+                "summary": "Update Project Details",
+                "description": "Update Project Details",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Enter Project ID",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/updateProject"
+                        }
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Enter Value Of The Field, Which You Want To Update",
+                        "schema": {
+                            "$ref": "#/definitions/updateProject"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/delete-project": {
+            "post": {
+                "tags": [
+                    "Project"
+                ],
+                "summary": "Delete Project",
+                "description": "Delete Project",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Enter All Required Details",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/deleteProject"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/create-point": {
+            "post": {
+                "tags": [
+                    "Point"
+                ],
+                "summary": "Create Point",
+                "description": "Create Point",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "description": "Token That Need To Be Set In Header With 'Bearer' Keyword",
+                        "required": true,
+                        "type": "string",
+                        "example": "Bearer token"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Enter All Required Details",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/point"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/get-points/{id}": {
+            "get": {
+                "tags": [
+                    "Point"
+                ],
+                "summary": "Get Point",
+                "description": "Get Point",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "parameters": [
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "description": "Token That Need To Be Set In Header With 'Bearer' Keyword",
+                        "required": true,
+                        "type": "string",
+                        "example": "Bearer token"
+                    },
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Enter Point Id",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/point"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/update-point/{id}": {
+            "post": {
+                "tags": [
+                    "Point"
+                ],
+                "summary": "Update Point",
+                "description": "Update Point",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "description": "Token That Need To Be Set In Header With 'Bearer' Keyword",
+                        "required": true,
+                        "type": "string",
+                        "example": "Bearer token"
+                    },
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Enter Point Id",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/updatePoint"
+                        }
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Enter Value Of The Field, Which You Want To Update",
+                        "schema": {
+                            "$ref": "#/definitions/updatePoint"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/delete-point/{id}": {
+            "delete": {
+                "tags": [
+                    "Point"
+                ],
+                "summary": "Delete Point",
+                "description": "Delete Point",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "description": "Token That Need To Be Set In Header With 'Bearer' Keyword",
+                        "required": true,
+                        "type": "string",
+                        "example": "Bearer token"
+                    },
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Enter Point Id",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/point"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/create-profile": {
+            "post": {
+                "tags": [
+                    "NTRIP Profile"
+                ],
+                "summary": "Create NTRIP Profile",
+                "description": "Create Profile",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "description": "Token That Need To Be Set In Header With 'Bearer' Keyword",
+                        "required": true,
+                        "type": "string",
+                        "example": "Bearer token"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Enter All Required Details",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/NTRIPProfile"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/profile-details/{id}": {
+            "get": {
+                "tags": [
+                    "NTRIP Profile"
+                ],
+                "summary": "Get NTRIP Profile Details",
+                "description": "Get Profile Details",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "description": "Token That Need To Be Set In Header With 'Bearer' Keyword",
+                        "required": true,
+                        "type": "string",
+                        "example": "Bearer token"
+                    },
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Enter Profile Id",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/NTRIPProfile"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/update-profile/{id}": {
+            "post": {
+                "tags": [
+                    "NTRIP Profile"
+                ],
+                "summary": "Update NTRIP Profile Details",
+                "description": "Update Profile Details",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "description": "Token That Need To Be Set In Header With 'Bearer' Keyword",
+                        "required": true,
+                        "type": "string",
+                        "example": "Bearer token"
+                    },
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Enter Profile Id",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/NTRIPProfile"
+                        }
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Enter Value Of The Field, Which You Want To Update",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/NTRIPProfile"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/delete-profile/{id}": {
+            "delete": {
+                "tags": [
+                    "NTRIP Profile"
+                ],
+                "summary": "Delete NTRIP Profile",
+                "description": "Delete Profile",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "description": "Token That Need To Be Set In Header With 'Bearer' Keyword",
+                        "required": true,
+                        "type": "string",
+                        "example": "Bearer token"
+                    },
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Enter Profile Id",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/NTRIPProfile"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "userSignup": {
+            "type": "object",
+            "properties": {
+                "login_type": {
+                    "type": "number"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "social_id": {
+                    "type": "string"
+                },
+                "social_type": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                }
+            }
+        },
+        "userLogin": {
+            "type": "object",
+            "properties": {
+                "login_type": {
+                    "type": "number"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "social_id": {
+                    "type": "string"
+                },
+                "social_type": {
+                    "type": "string"
+                }
+            }
+        },
+        "updateUserInfo": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "updateImage": {
+            "type": "object",
+            "properties": {
+                "image": {
+                    "type": "string"
+                }
+            }
+        },
+        "verticalDatum": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "file_name": {
+                    "type": "string"
+                }
+            }
+        },
+        "verticalDatumList": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                }
+            }
+        },
+        "project": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "author": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "codes": {
+                    "type": "number"
+                },
+                "coordinatevalue": {
+                    "type": "string"
+                },
+                "vertical_datum": {
+                    "type": "string"
+                },
+                "linear_units": {
+                    "type": "string"
+                }
+            }
+        },
+        "updateProject": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "author": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "codes": {
+                    "type": "number"
+                }
+            }
+        },
+        "deleteProject": {
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "point": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "desc": {
+                    "type": "string"
+                },
+                "latitude": {
+                    "type": "string"
+                },
+                "longitude": {
+                    "type": "string"
+                },
+                "east": {
+                    "type": "string"
+                },
+                "north": {
+                    "type": "string"
+                },
+                "elevation": {
+                    "type": "string"
+                },
+                "codes": {
+                    "type": "number",
+                    "default": 0
+                },
+                "coordinate_system": {
+                    "type": "string",
+                    "default": "Local"
+                }
+            }
+        },
+        "updatePoint": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "desc": {
+                    "type": "string"
+                },
+                "codes": {
+                    "type": "number"
+                }
+            }
+        },
+        "NTRIPProfile": {
+            "type": "object",
+            "required": [
+                "port",
+                "address",
+                "mount_point"
+            ],
+            "properties": {
+                "profile_name": {
+                    "type": "string"
+                },
+                "port": {
+                    "type": "number"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "user_name": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "mount_point": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{"level":"error","message":"This email is not exist"}
+{"level":"error","message":"Please check your email again"}
+{"level":"error","message":"Please check your email again"}
+{"level":"error","message":"Please check your password again"}
+{"level":"error","message":"Please check your password again"}
+{"level":"error","message":"Please check your password again"}
+{"level":"error","message":"Please check your password again"}
+{"level":"error","message":"Please check your email again"}
+{"level":"error","message":"Please check your password again"}
+{"level":"error","message":"Please check your email again"}
+{"level":"error","message":"Please Enter A Unique Email. This Email Already Exist"}
+{"level":"error","message":"Please Enter A Unique Email. This Email Already Exist"}
+{"level":"error","message":"Please check your password again"}
+{"level":"error","message":"User ID Not Found"}
+{"level":"error","message":"Account Not Exist"}
+{"level":"error","message":"User ID not Found"}
+{"level":"error","message":"User ID Not Found"}
+{"level":"error","message":"Account Not Exist"}
+{"_message":"vertical_datum validation failed","errors":{"url":{"kind":"string","message":"Cast to string failed for value \"[\n  {\n    fieldname: 'url',\n    originalname: 'viravu.xlsx',\n    encoding: '7bit',\n    mimetype: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',\n    destination: 'uploads/',\n    filename: '1680243378869_url_viravu.xlsx',\n    path: 'uploads\\\\1680243378869_url_viravu.xlsx',\n    size: 77008\n  }\n]\" (type Array) at path \"url\"","name":"CastError","path":"url","reason":null,"stringValue":"\"[\n  {\n    fieldname: 'url',\n    originalname: 'viravu.xlsx',\n    encoding: '7bit',\n    mimetype: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',\n    destination: 'uploads/',\n    filename: '1680243378869_url_viravu.xlsx',\n    path: 'uploads\\\\1680243378869_url_viravu.xlsx',\n    size: 77008\n  }\n]\"","value":[{"destination":"uploads/","encoding":"7bit","fieldname":"url","filename":"1680243378869_url_viravu.xlsx","mimetype":"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","originalname":"viravu.xlsx","path":"uploads\\1680243378869_url_viravu.xlsx","size":77008}],"valueType":"Array"}},"level":"error","message":"vertical_datum validation failed: url: Cast to string failed for value \"[\n  {\n    fieldname: 'url',\n    originalname: 'viravu.xlsx',\n    encoding: '7bit',\n    mimetype: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',\n    destination: 'uploads/',\n    filename: '1680243378869_url_viravu.xlsx',\n    path: 'uploads\\\\1680243378869_url_viravu.xlsx',\n    size: 77008\n  }\n]\" (type Array) at path \"url\"","name":"ValidationError"}
+{"_message":"vertical_datum validation failed","errors":{"url":{"kind":"string","message":"Cast to string failed for value \"[\n  {\n    fieldname: 'url',\n    originalname: 'viravu.xlsx',\n    encoding: '7bit',\n    mimetype: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',\n    destination: 'uploads/',\n    filename: '1680243490925_url_viravu.xlsx',\n    path: 'uploads\\\\1680243490925_url_viravu.xlsx',\n    size: 77008\n  }\n]\" (type Array) at path \"url\"","name":"CastError","path":"url","reason":null,"stringValue":"\"[\n  {\n    fieldname: 'url',\n    originalname: 'viravu.xlsx',\n    encoding: '7bit',\n    mimetype: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',\n    destination: 'uploads/',\n    filename: '1680243490925_url_viravu.xlsx',\n    path: 'uploads\\\\1680243490925_url_viravu.xlsx',\n    size: 77008\n  }\n]\"","value":[{"destination":"uploads/","encoding":"7bit","fieldname":"url","filename":"1680243490925_url_viravu.xlsx","mimetype":"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","originalname":"viravu.xlsx","path":"uploads\\1680243490925_url_viravu.xlsx","size":77008}],"valueType":"Array"}},"level":"error","message":"vertical_datum validation failed: url: Cast to string failed for value \"[\n  {\n    fieldname: 'url',\n    originalname: 'viravu.xlsx',\n    encoding: '7bit',\n    mimetype: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',\n    destination: 'uploads/',\n    filename: '1680243490925_url_viravu.xlsx',\n    path: 'uploads\\\\1680243490925_url_viravu.xlsx',\n    size: 77008\n  }\n]\" (type Array) at path \"url\"","name":"ValidationError"}
+{"level":"error","message":"Data Not Found"}
+{"level":"error","message":"Data Not Found"}
+{"level":"error","message":"Data Not Found"}
+{"level":"error","message":"Data Not Found"}
+{"level":"error","message":"Data Not Found"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error","message":"Account Not Exist"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error","message":"Please check your password again"}
+{"kind":"ObjectId","message":"Cast to ObjectId failed for value \"{ _id: undefined }\" (type Object) at path \"_id\" for model \"project\"","name":"CastError","path":"_id","reason":{},"stringValue":"\"{ _id: undefined }\"","value":{},"valueType":"Object"}
+{"kind":"ObjectId","message":"Cast to ObjectId failed for value \":id\" (type string) at path \"_id\" for model \"point\"","name":"CastError","path":"_id","reason":{},"stringValue":"\":id\"","value":":id","valueType":"string"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error","message":"Invalid Authentication"}
+{"level":"error","message":"Invalid Authentication"}
+{"level":"error","message":"[object Object] ture is not defined","stack":"ReferenceError: ture is not defined\n    at Object.deleteProfile (D:\\KarunaJaiswal\\emlid_backend\\src\\controller\\NTRIP-Profile.js:133:80)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"}
+{"level":"error","message":"[object Object] ture is not defined","stack":"ReferenceError: ture is not defined\n    at Object.deleteProfile (D:\\KarunaJaiswal\\emlid_backend\\src\\controller\\NTRIP-Profile.js:135:80)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"}
+{"level":"error","message":"[object Object] ture is not defined","stack":"ReferenceError: ture is not defined\n    at Object.deleteProfile (D:\\KarunaJaiswal\\emlid_backend\\src\\controller\\NTRIP-Profile.js:135:80)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"}
+{"level":"error","message":"[object Object] ture is not defined","stack":"ReferenceError: ture is not defined\n    at Object.deleteProfile (D:\\KarunaJaiswal\\emlid_backend\\src\\controller\\NTRIP-Profile.js:135:80)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"}
+{"level":"error","message":"Data Not Found"}
